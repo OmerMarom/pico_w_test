@@ -1,0 +1,23 @@
+{
+    "cSpell.words": [
+        "eabi",
+        "gpio",
+        "mpacbti",
+        "PICO"
+    ],
+    "cmake.generator": "NMake Makefiles",
+    "terminal.integrated.profiles.windows": {
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [
+                "/K",
+                "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\Tools\\VsDevCmd.bat",
+            ],
+            "icon": "terminal-cmd"
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "Command Prompt"
+}
