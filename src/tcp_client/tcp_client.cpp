@@ -114,32 +114,30 @@ struct Client {
         return ERR_OK;
     }
 
-    static err_t on_connected(void* arg, tcp_pcb* _tcp_pcb, const err_t error) {
-        if (error) {
-            auto* client = (Client*)arg;
-            client->m_error = error;
-        }
+    static void on_error(void* arg, const err_t error) {
+        auto* client = (Client*)arg;
+        client->m_error = error;
+    }
 
-        return ERR_OK;
+    static err_t on_connected(void* arg, tcp_pcb* _tcp_pcb, const err_t error) {
+        auto* client = (Client*)arg;
+        return client->m_error = error;
     }
 
     static err_t on_sent(void* arg, tcp_pcb* _tcp_pcb, const u16_t _sent_size) {
+        // Stop sending at SEND_COUNT:
         auto* client = (Client*)arg;
         client->send_count++;
         if (client->send_count >= SEND_COUNT) {
             return client->m_error = ERR_ABRT;
         }
 
+        // Toggle send light:
         static bool sent_on = true; 
         set_led(SENT_LED_PIN, sent_on);
         sent_on = !sent_on;
 
         return ERR_OK;
-    }
-
-    static void on_error(void* arg, const err_t error) {
-        auto* client = (Client*)arg;
-        client->m_error = error;
     }
 };
 
