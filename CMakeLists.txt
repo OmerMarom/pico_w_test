@@ -15,13 +15,18 @@ pico_sdk_init()
 
 function(make_exe target src)
     add_executable(${target} ${src})
-
-    target_link_libraries(${target} pico_stdlib pico_cyw43_arch_none)
-
-    # create map/bin/hex file etc.
     pico_add_extra_outputs(${target})
 endfunction()
 
-# make_exe(blink src/blink.c)
-# make_exe(led_button src/led_button.c)
-make_exe(blink_relay src/blink_relay.c)
+# make_exe(blink src/blink.cpp)
+# target_link_libraries(blink pico_stdlib pico_cyw43_arch_none)
+
+# make_exe(blink_relay src/blink_relay.cpp)
+# target_link_libraries(blink_relay pico_stdlib)
+
+# make_exe(led_button src/led_button.cpp)
+# target_link_libraries(led_button pico_stdlib)
+
+make_exe(tcp_client src/tcp_client/tcp_client.cpp)
+target_include_directories(tcp_client PRIVATE src/tcp_client)
+target_link_libraries(tcp_client pico_stdlib pico_cyw43_arch_lwip_threadsafe_background)

@@ -11,7 +11,7 @@ int main() {
     while (true) {
         cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, led_on);
         led_on = !led_on;
-        const uint BLINK_INTERVAL = 250; 
+        static constexpr uint BLINK_INTERVAL = 250; 
         sleep_ms(BLINK_INTERVAL);
     } 
 
