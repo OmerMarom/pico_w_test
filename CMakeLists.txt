@@ -27,6 +27,6 @@ endfunction()
 # make_exe(led_button src/led_button.cpp)
 # target_link_libraries(led_button pico_stdlib)
 
-make_exe(tcp_client src/tcp_client/tcp_client.cpp)
+make_exe(tcp_client src/tcp_client/main.cpp)
 target_include_directories(tcp_client PRIVATE src/tcp_client)
 target_link_libraries(tcp_client pico_stdlib pico_cyw43_arch_lwip_threadsafe_background)
