@@ -5,6 +5,7 @@
         "mpacbti",
         "PICO"
     ],
+    "cmake.configureArgs": ["-DPICO_SDK_FETCH_FROM_GIT=ON"],
     "cmake.generator": "NMake Makefiles",
     "terminal.integrated.profiles.windows": {
         "Command Prompt": {
@@ -67,6 +68,18 @@
         "ostream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "ctime": "cpp",
+        "map": "cpp",
+        "optional": "cpp",
+        "fstream": "cpp",
+        "iomanip": "cpp",
+        "iostream": "cpp",
+        "istream": "cpp",
+        "ranges": "cpp",
+        "thread": "cpp",
+        "chrono": "cpp",
+        "ratio": "cpp",
+        "stop_token": "cpp"
     }
 }
